@@ -1,9 +1,12 @@
 #pragma once
 #include <iostream>
+#include <fstream>
 #include <filesystem>
+#pragma once
 #include <vector>
 
 #define CSV_EXTENSION ".csv"
+#define WINNERS_NUM 10
 
 namespace fs = std::filesystem;
 

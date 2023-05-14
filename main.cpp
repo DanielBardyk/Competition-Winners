@@ -4,10 +4,8 @@
 #include <filesystem>
 #include <vector>
 
+#include "Country.h"
 #include "functions.h"
-
-#define CSV_EXTENSION ".csv"
-#define WINNERS_NUM 10
 
 namespace fs = std::filesystem;
 
