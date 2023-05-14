@@ -84,3 +84,6 @@ void giveRates(std::vector<Country>& countries)
 		distributePoints(countries);
 	}
 }
+
+void sortByRate(std::vector<Country>& countries)
+{ std::sort(countries.begin(), countries.end(), [](Country c1, Country c2) {return c1.getPoints() > c2.getPoints();}); }

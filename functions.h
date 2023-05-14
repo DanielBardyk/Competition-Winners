@@ -23,3 +23,5 @@ std::vector<Country> getCountries(const std::vector<fs::path>& paths);
 void distributePoints(std::vector<Country>&);
 
 void giveRates(std::vector<Country>& countries);
+
+void sortByRate(std::vector<Country>& countries);
