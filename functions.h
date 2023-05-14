@@ -2,8 +2,8 @@
 #include <iostream>
 #include <fstream>
 #include <filesystem>
-#pragma once
 #include <vector>
+#include <algorithm>
 
 #include "Country.h"
 
@@ -19,3 +19,7 @@ std::vector<fs::path> readDir(const fs::path&);
 bool isCSVFile(const fs::path&);
 
 std::vector<Country> getCountries(const std::vector<fs::path>& paths);
+
+void distributePoints(std::vector<Country>&);
+
+void giveRates(std::vector<Country>& countries);

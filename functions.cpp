@@ -64,3 +64,23 @@ std::vector<Country> getCountries(const std::vector<fs::path>& paths)
 	}
 	return countries;
 }
+
+void distributePoints(std::vector<Country>& countries)
+{
+	int points[WINNERS_NUM] = {12, 10, 8, 7, 6, 5, 4, 3, 2, 1};
+
+	countries[0].addPoints(points[0]);
+	countries[1].addPoints(points[1]);
+
+	for(int j=2; j < WINNERS_NUM; j++)
+		countries[j].addPoints(points[j]);
+}
+
+void giveRates(std::vector<Country>& countries)
+{
+	for(int i=0; i < countries.size(); i++)
+	{
+		std::sort(countries.begin(), countries.end(), [i](Country c1, Country c2) {return c1.getVoteByIndex(i) > c2.getVoteByIndex(i);});
+		distributePoints(countries);
+	}
+}
