@@ -29,6 +29,8 @@ int main(int argc, char **argv) {
 			return 1;
 		}
 
+		std::vector<Country> results = calcResults(paths);
+
 	} catch(std::runtime_error& e) {
 		std::cerr << "Runtime error: " << e.what() << std::endl;
 	}

@@ -87,3 +87,15 @@ void giveRates(std::vector<Country>& countries)
 
 void sortByRate(std::vector<Country>& countries)
 { std::sort(countries.begin(), countries.end(), [](Country c1, Country c2) {return c1.getPoints() > c2.getPoints();}); }
+
+std::vector<Country> calcResults(const std::vector<fs::path>& paths)
+{
+	std::vector<Country> countries;
+
+	countries = getCountries(paths);
+
+	giveRates(countries);
+	sortByRate(countries);
+
+	return countries;
+}
