@@ -99,3 +99,13 @@ std::vector<Country> calcResults(const std::vector<fs::path>& paths)
 
 	return countries;
 }
+
+void showResults(std::vector<Country>& countries) {
+	std::ofstream file("results.csv");
+	if(!file) 
+		throw std::runtime_error("Cannot create output file");
+		
+	for (int i=0; i < WINNERS_NUM; i++)
+		file << countries[i].getName() << "," << countries[i].getPoints() << std::endl;
+	file.close();
+}

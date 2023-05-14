@@ -27,3 +27,5 @@ void giveRates(std::vector<Country>& countries);
 void sortByRate(std::vector<Country>& countries);
 
 std::vector<Country> calcResults(const std::vector<fs::path>& paths);
+
+void showResults(std::vector<Country>& countries);
