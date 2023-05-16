@@ -4,6 +4,8 @@
 #include <filesystem>
 #include <vector>
 #include <algorithm>
+#include <cmath>
+#include <sstream>
 
 #include "Country.h"
 
@@ -17,6 +19,8 @@ bool isDirExists(const fs::path&);
 std::vector<fs::path> readDir(const fs::path&);
 
 bool isCSVFile(const fs::path&);
+
+bool isFilesDataValid(const std::vector<fs::path>& paths);
 
 std::vector<Country> getCountries(const std::vector<fs::path>& paths);
 

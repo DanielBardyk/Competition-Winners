@@ -29,8 +29,11 @@ int main(int argc, char **argv) {
 			return 1;
 		}
 
-		std::vector<Country> results = calcResults(paths);
-		showResults(results);
+		if (isFilesDataValid(paths))
+		{
+			std::vector<Country> results = calcResults(paths);
+			showResults(results);
+		} else return 1;
 
 	} catch(std::runtime_error& e) {
 		std::cerr << "Runtime error: " << e.what() << std::endl;
