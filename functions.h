@@ -9,9 +9,6 @@
 
 #include "Country.h"
 
-#define CSV_EXTENSION ".csv"
-#define WINNERS_NUM 10
-
 namespace fs = std::filesystem;
 
 bool isDirExists(const fs::path&);

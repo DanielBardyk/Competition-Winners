@@ -25,7 +25,7 @@ int main(int argc, char **argv) {
 		std::vector<fs::path> paths = readDir(dirpath);
 
 		if(paths.empty()) {
-			std::cout << "No CSV files to process..." << std::endl;
+			std::cerr << "No CSV files to process..." << std::endl;
 			return 1;
 		}
 

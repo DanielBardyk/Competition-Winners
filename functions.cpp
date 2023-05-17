@@ -23,7 +23,7 @@ std::vector<fs::path> readDir(const fs::path& dpath)
 }
 
 bool isCSVFile(const fs::path& p)
-{ return fs::is_regular_file(p) && p.extension() == CSV_EXTENSION; }
+{ return fs::is_regular_file(p) && p.extension() == ".csv"; }
 
 bool isInteger(std::string str) 
 {
@@ -195,12 +195,12 @@ std::vector<Country> getCountries(const std::vector<fs::path>& paths)
 
 void distributePoints(std::vector<Country>& countries)
 {
-	int points[WINNERS_NUM] = {12, 10, 8, 7, 6, 5, 4, 3, 2, 1};
+	int points[10] = {12, 10, 8, 7, 6, 5, 4, 3, 2, 1};
 
 	countries[0].addPoints(points[0]);
 	countries[1].addPoints(points[1]);
 
-	for(int j=2; j < WINNERS_NUM; j++)
+	for(int j=2; j < 10; j++)
 		countries[j].addPoints(points[j]);
 }
 
@@ -233,7 +233,7 @@ void showResults(std::vector<Country>& countries) {
 	if(!file) 
 		throw std::runtime_error("Cannot create output file");
 		
-	for (int i=0; i < WINNERS_NUM; i++)
+	for (int i=0; i < 10; i++)
 		file << countries[i].getName() << "," << countries[i].getPoints() << std::endl;
 	file.close();
 }
