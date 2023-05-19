@@ -12,7 +12,7 @@ public:
 	Country(std::string name);
 	void addVote(int vote);
 	void addPoints(int points);
-	std::string getName();
-	int getVoteByIndex(int voteIndex);
-	int getPoints();
+	std::string getName() const;
+	int getVoteByIndex(const int voteIndex) const;
+	int getPoints() const;
 };

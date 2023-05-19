@@ -1,11 +1,12 @@
 #include <iostream>
 #include <string>
-#include <exception>
 #include <filesystem>
 #include <vector>
+#include <exception>
 
 #include "Country.h"
-#include "functions.h"
+#include "CountriesReader.h"
+#include "CountriesTable.h"
 
 namespace fs = std::filesystem;
 
@@ -21,22 +22,18 @@ int main(int argc, char **argv) {
 	try
 	{
 		fs::path dirpath = ".\\" + dirname;
-		if(!isDirExists(dirpath)) return 1;
-		std::vector<fs::path> paths = readDir(dirpath);
 
-		if(paths.empty()) {
-			std::cerr << "No CSV files to process..." << std::endl;
-			return 1;
-		}
+		CountriesReader countriesReader;
+		std::vector<Country> countries = countriesReader.readCountries(dirpath);
 
-		if (isFilesDataValid(paths))
-		{
-			std::vector<Country> results = calcResults(paths);
-			showResults(results);
-		} else return 1;
+		CountriesTable countriesTable(countries);
+		countriesTable.calcResults();
+		countriesTable.showWinners();
 
 	} catch(std::runtime_error& e) {
 		std::cerr << "Runtime error: " << e.what() << std::endl;
+	} catch(std::invalid_argument& e) {
+		std::cerr << "Invalid argument error: " << e.what() << std::endl;
 	}
 
 	return 0;
